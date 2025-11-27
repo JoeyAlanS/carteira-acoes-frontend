@@ -3,8 +3,8 @@
   (:gen-class))
 
 (defn menu []
-  (println "===== CARTEIRA DE AÇÕES =====")
-  (println "1 - Consultar ação")
+  (println "===== CARTEIRA DE ACOES =====")
+  (println "1 - Consultar acao")
   (println "2 - Comprar")
   (println "3 - Vender")
   (println "4 - Extrato")
@@ -23,7 +23,7 @@
       (= op "4") (do (menu/extrato-menu) (recur))
       (= op "5") (do (menu/saldo-menu) (recur))
       (= op "0") (println "Saindo...")
-      :else (do (println "Opção inválida!") (recur)))))
+      :else (do (println "Opcao invalida!") (recur)))))
 
 (defn -main []
   (loop-terminal))

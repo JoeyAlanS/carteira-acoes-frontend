@@ -32,7 +32,7 @@
         (espera)))))
 
 (defn extrato-menu []
-  (println "Início (yyyymmdd):")
+  (println "Inicio (yyyymmdd):")
   (let [i (Integer/parseInt (read-line))]
     (println "Fim (yyyymmdd):")
     (let [f (Integer/parseInt (read-line))]
