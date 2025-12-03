@@ -3,19 +3,29 @@
             [cheshire.core :as json]))
 
 (def base "http://localhost:3000")
-(println "API base URL:" base) ;; debug
 
 (defn get-json [url]
-  (-> (http/get (str base url) {:as :json})
-      :body))
+  (try
+    (let [resp (http/get (str base url)
+                         {:as :json
+                          :throw-exceptions false})]
+
+      (:body resp))  ;; sempre retorna o body
+    (catch Exception e
+      {:erro "Falha ao conectar ao servidor."})))
 
 (defn post-json [url body]
-  (-> (http/post (str base url)
-                 {:content-type :json
-                  :accept :json
-                  :body (json/encode body)
-                  :as :json})
-      :body))
+  (try
+    (let [resp (http/post (str base url)
+                          {:content-type :json
+                           :accept :json
+                           :body (json/encode body)
+                           :as :json
+                           :throw-exceptions false})]
+
+      (:body resp)) ;; pega o erro real do backend
+    (catch Exception e
+      {:erro "Falha ao enviar dados para o servidor."})))
 
 (defn consultar-acao [ticker]
   (get-json (str "/acao/" ticker)))

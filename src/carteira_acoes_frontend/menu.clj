@@ -16,8 +16,8 @@
   (let [t (read-line)]
     (println "Quantidade:")
     (let [q (Integer/parseInt (read-line))]
-      (println "Data (yyyymmdd):")
-      (let [d (Integer/parseInt (read-line))]
+      (println "Data (ddmmyyyy):")
+      (let [d (read-line)]
         (println (api/comprar t q d))
         (espera)))))
 
@@ -26,16 +26,16 @@
   (let [t (read-line)]
     (println "Quantidade:")
     (let [q (Integer/parseInt (read-line))]
-      (println "Data (yyyymmdd):")
-      (let [d (Integer/parseInt (read-line))]
+      (println "Data (ddmmyyyy):")
+      (let [d (read-line)]
         (println (api/vender t q d))
         (espera)))))
 
 (defn extrato-menu []
-  (println "Inicio (yyyymmdd):")
-  (let [i (Integer/parseInt (read-line))]
-    (println "Fim (yyyymmdd):")
-    (let [f (Integer/parseInt (read-line))]
+  (println "Inicio (ddmmyyyy):")
+  (let [i (read-line)]
+    (println "Fim (ddmmyyyy):")
+    (let [f (read-line)]
       (println (api/extrato i f))
       (espera))))
 
