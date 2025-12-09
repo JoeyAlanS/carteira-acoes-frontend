@@ -1,6 +1,5 @@
 (ns carteira-acoes-frontend.core
-  (:require [carteira-acoes-frontend.menu :as menu])
-  (:gen-class))
+  (:require [carteira-acoes-frontend.menu :as menu]))
 
 (defn menu []
   (println "===== CARTEIRA DE ACOES =====")

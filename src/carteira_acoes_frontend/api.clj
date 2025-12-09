@@ -10,7 +10,7 @@
                          {:as :json
                           :throw-exceptions false})]
 
-      (:body resp))  ;; sempre retorna o body
+      (:body resp))
     (catch Exception e
       {:erro "Falha ao conectar ao servidor."})))
 
@@ -23,7 +23,7 @@
                            :as :json
                            :throw-exceptions false})]
 
-      (:body resp)) ;; pega o erro real do backend
+      (:body resp))
     (catch Exception e
       {:erro "Falha ao enviar dados para o servidor."})))
 
